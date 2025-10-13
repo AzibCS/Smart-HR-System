@@ -1,3 +1,4 @@
 data/employees.db
+db_setup.py
 __pycache__/
 *.pyc
