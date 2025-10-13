@@ -1,0 +1,3 @@
+data/employees.db
+__pycache__/
+*.pyc
