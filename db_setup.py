@@ -55,14 +55,14 @@ def init_db():
     cur.execute("SELECT COUNT(*) FROM employees")
     if cur.fetchone()[0] == 0:
         cur.executemany("""
-        INSERT INTO employees (name, department, position, salary, hire_date)
+        INSERT INTO employees (name, email, phone, base_salary, join_date)
         VALUES (?, ?, ?, ?, ?)
         """, [
-            ("Ali Khan", "IT", "Software Engineer", 75000, "2022-03-15"),
-            ("Sara Ahmed", "HR", "HR Officer", 65000, "2021-06-10"),
-            ("Zain Malik", "Finance", "Accountant", 70000, "2023-01-20"),
+            ("Ali Khan", "ali12@gmail.com", "+923234567983", 55000.0, "2022-03-15"),
+            ("Sara Ahmed", "sara12@gmail.com", "+923234875983", 60000.0, "2021-06-10"),
+            ("Zain Malik", "zain12@gmail.com", "+923454507983", 43400.0, "2023-01-20"),
         ])
-        conn.commit()
+       # conn.commit()
     conn.commit()
     conn.close()
 
