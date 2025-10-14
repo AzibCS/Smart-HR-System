@@ -6,6 +6,7 @@ import fitz
 from datetime import datetime
 from resume_parser import parse_resume
 from payroll_logic import calculate_pay
+from streamlit_option_menu import option_menu
 from db_setup import init_db, DB_PATH
 
 init_db()
@@ -64,7 +65,24 @@ def get_payroll_summary():
 
 st.set_page_config(page_title="Smart HR System", layout="wide")
 st.title("👩‍💼 Smart Recruitment & Payroll System")
-menu = st.sidebar.radio("Choose Section: ", ["Dashboard", "Resume Parser", "Interview Scheduler", "Payroll", "Employee"])
+#menu = st.sidebar.radio("Choose Section: ", ["Dashboard", "Resume Parser", "Interview Scheduler", "Payroll", "Employee"])
+
+# Sidebar / Tabs
+with st.sidebar:
+    st.title("Side Bar Menu")
+    menu = option_menu(
+        menu_title="Choose Section:",
+        options=["Dashboard", "Resume Parser", "Interview Scheduler", "Payroll", "Employee"],
+        icons=["speedometer",          # Dashboard
+            "file-earmark-text",    # Resume Parser
+            "calendar-check",       # Interview Scheduler
+            "currency-dollar",      # Payroll
+            "people-fill" ],
+        menu_icon="grid",
+        default_index=0,
+        orientation="vertical"
+    )
+
 
 if menu == "Resume Parser":
     st.header("📄 Upload and Parse Resume")
