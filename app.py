@@ -8,6 +8,8 @@ from resume_parser import parse_resume
 from payroll_logic import calculate_pay
 from db_setup import init_db, DB_PATH
 
+init_db()
+
 def connectDB():
     conn = sqlite3.connect(DB_PATH, check_same_thread=False)
     conn.row_factory = sqlite3.Row
