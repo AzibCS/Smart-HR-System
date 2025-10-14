@@ -1,6 +1,5 @@
 streamlit
 pandas
-spacy
 plotly
 PyMuPDF
 blis==0.7.11
